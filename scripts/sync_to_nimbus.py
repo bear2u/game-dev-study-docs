@@ -54,6 +54,14 @@ def main():
         if body_lines and body_lines[0].startswith("# "):
             body = "\n".join(body_lines[1:]).lstrip()
 
+        video_url = meta.get("url", "")
+        if video_url:
+            # Make plain URL in metadata table clickable
+            body = body.replace(f"| URL | {video_url} |", f"| URL | [{video_url}]({video_url}) |")
+            top_banner = f"> 📺 **YouTube 원본 영상:** [{video_url}]({video_url})\n\n"
+        else:
+            top_banner = ""
+
         nimbus_md = f"""---
 title: "{safe_title}"
 description: "{desc}"
@@ -61,7 +69,7 @@ sidebar:
   order: {idx}
 ---
 
-{body}
+{top_banner}{body}
 """
         out_path = DEST_DIR / f"{idx:02d}.md"
         out_path.write_text(nimbus_md, encoding="utf-8")

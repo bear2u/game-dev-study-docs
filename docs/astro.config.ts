@@ -14,6 +14,7 @@ const nimbusConfig = defineNimbusConfig({
   description:
     "桜井政博のゲーム作るには(사쿠라이 마사히로의 게임 만드는 법) 강의 한국어 번역, 핵심 요약 및 다이어그램 학습 노트",
   locale: "ko",
+  github: "https://github.com/bear2u/game-dev-study-docs",
   socialImageAlt: "사쿠라이 마사히로의 게임 만드는 법 학습 문서",
   sidebar: {
     items: [
