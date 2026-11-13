@@ -8,6 +8,28 @@ BASE_DIR = Path.cwd()
 SRC_DIR = BASE_DIR / "lectures" / "A_일의_자세"
 DEST_DIR = BASE_DIR / "docs" / "src" / "content" / "docs" / "lectures" / "a-work-attitude"
 
+KO_TITLES = {
+    1: "놀이를 만드는 일은 놀이가 아니다",
+    2: "프레젠테이션은 스피디하게",
+    3: "고객에게 설명할 수 있는가?",
+    4: "사양 변경 대처법",
+    5: "기획서 작성법",
+    6: "기획서는 단숨에 힘차게",
+    7: "고생은 잊히고 작품은 남는다",
+    8: "디렉터는 곧 개성이다",
+    9: "어쨌든 당장 해라!!",
+    10: "칼럼을 계속 쓸 수 있었던 이유",
+    11: "플랜 B에 기대지 마라",
+    12: "가치관의 줄기와 가지",
+    13: "인풋이 강해야 아웃풋도 강하다",
+    14: "내압을 높여라",
+    15: "의미 없는 다수결",
+    16: "암시의 힘",
+    17: "콘셉트는 꺾지 않는 것",
+    18: "경쟁과 풍요",
+    19: "말한 것은 그대로 실현된다",
+}
+
 
 def parse_frontmatter(text: str) -> tuple[dict, str]:
     if not text.startswith("---\n"):
@@ -46,8 +68,9 @@ def main():
         idx = int(meta.get("index", "0") or "0")
         title = meta.get("title", f.stem)
         short_title = re.sub(r"\s*[\[【].*?[\]】]\s*$", "", title).strip()
+        ko_title = KO_TITLES.get(idx, short_title)
         desc = extract_first_summary(body).replace('"', '\\"')
-        safe_title = f"{idx:02d}. {short_title}".replace('"', '\\"')
+        safe_title = f"{idx:02d}. {ko_title}".replace('"', '\\"')
 
         # Remove duplicate H1 in body if it matches, since Nimbus renders title as H1
         body_lines = body.lstrip().splitlines()
