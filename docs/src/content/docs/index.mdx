@@ -1,0 +1,62 @@
+---
+title: 사쿠라이 마사히로의 게임 만드는 법
+description: 桜井政博のゲーム作るには 강의 한국어 번역, 핵심 요약 및 다이어그램 학습 노트
+sidebar:
+  order: 0
+---
+
+import Mermaid from "../../components/Mermaid.astro";
+
+유튜브 채널 **「桜井政博のゲーム作るには (사쿠라이 마사히로의 게임 만드는 법)」** 강의를 공부하기 위해 한국어로 번역·요약하고, 핵심 개념을 다이어그램으로 시각화한 학습 문서입니다.
+
+<Aside type="tip" title="현재 수록 범위">
+  **카테고리 A. 일의 자세 (1~19강)** 전체 번역·핵심 요약 및 다이어그램이 수록되어 있습니다. 나머지 카테고리(B~N, S)는 유튜브 요청 제한 해제 후 순차적으로 추가됩니다.
+</Aside>
+
+## 전체 커리큘럼 구조
+
+<Mermaid
+  caption="사쿠라이 마사히로의 게임 만드는 법 — 전체 학습 로드맵"
+  chart={`flowchart LR
+    A["A. 일의 자세 (1~19강 수록)"] --> B["B. 게임성"]
+    B --> C["C. 기획 · 게임 설계"]
+    C --> D["D. 사양"]
+    D --> E["E. 팀 운영"]
+    C --> F["F. 그래픽 / G. 모션 / H. 이펙트"]
+    C --> I["I. 사운드 / J. UI"]
+    E --> K["K. 프로그램 · 테크니컬"]
+    E --> L["L. 홍보"]
+    A --> N["N. 기획 콘셉트"]
+    style A fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#111827`}
+/>
+
+## 학습 바로가기
+
+<CardGrid>
+  <Card title="A. 일의 자세 핵심 정리 & 다이어그램" icon="ph:compass">
+    1~19강을 4개 테마(프로 의식 · 기획과 실행 · 창의성과 인풋 · 마인드셋)로 묶은 마인드맵과 실전 체크리스트.
+    <br />
+    [핵심 정리 보러가기 →](/guides/category-a-overview/)
+  </Card>
+  <Card title="1~19강 전체 번역 노트" icon="ph:book-open-text">
+    타임스탬프 기반 한국어 전문 번역과 일본어 원문(접기/펼치기), 강의별 핵심 요약 수록.
+    <br />
+    [01강부터 읽기 →](/lectures/a-work-attitude/01/)
+  </Card>
+</CardGrid>
+
+## GitHub Pages 배포 방법
+
+이 문서는 Cloudflare의 **Nimbus (Astro)** 기반 정적 사이트이며, `.github/workflows/deploy.yml`이 이미 포함되어 있습니다.
+
+<Steps>
+  <Step title="GitHub 저장소 생성 및 푸시">
+    이 워크스페이스를 GitHub 저장소의 `main` 또는 `master` 브랜치에 푸시합니다.
+  </Step>
+  <Step title="GitHub Pages 설정">
+    GitHub 저장소의 **Settings → Pages → Source**에서 **GitHub Actions**를 선택합니다.
+  </Step>
+  <Step title="자동 빌드 및 배포 확인">
+    푸시 시 자동으로 `docs/`를 빌드하여 `https://<username>.github.io/<repo-name>/` 주소로 배포됩니다.
+  </Step>
+</Steps>
